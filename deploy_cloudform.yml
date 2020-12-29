@@ -1,0 +1,14 @@
+---
+- hosts: "localhost"
+  connection: "local"
+  gather_facts: false  
+  tasks:
+    - name: create a cloudformation stack
+      amazon.aws.cloudformation:
+        stack_name: "ansible-cloudformation"
+        state: "present"
+        region: "us-west-2"
+        disable_rollback: true
+        template: "webservice.yaml"
+        tags:
+          Stack: "Test_Stack"

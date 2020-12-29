@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+#Apache Configuration
+   # - name: Set authorized key taken from file
+   #   ansible.posix.authorized_key:
+   #     user: root
+   #     state: present
+   #     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+    - name: copy index.php to now directory remote server
+      copy: 
+        src: /Users/prince/playbooks/index.html
+        dest: /var/www/html/now/index.html
+        force: yes
+      notify:
+          - restart httpd
+    - name: copy the httpd.conf file to destination apache server
+      copy:
+        src: /Users/prince/playbooks/httpd.conf
+        dest: /etc/httpd/conf/httpd.conf
+        force: yes
+      notify:
+          - restart httpd
+  handlers:
+    - name: restart httpd
+      service:
+          name: httpd
+          state: restarted

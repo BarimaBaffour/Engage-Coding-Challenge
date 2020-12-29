@@ -1,0 +1,9 @@
+---
+plugin: aws_ec2
+aws_profile: default
+regions:
+  - us-west-2
+filters: 
+  tag:Name:
+       - TEST*
+  instance-state-name: running
