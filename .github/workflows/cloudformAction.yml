@@ -21,4 +21,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run cloudformation playbook on the macos slef host
-        run: ansible-playbook -i test_aws_ec2.yaml deploy_cloudform.yml
+        run: ansible-playbook deploy_cloudform.yml
