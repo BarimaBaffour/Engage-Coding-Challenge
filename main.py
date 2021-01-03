@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 
-URL = 'http://ec2-54-203-118-10.us-west-2.compute.amazonaws.com/now/'
+URL = 'http://ec2-54-212-56-191.us-west-2.compute.amazonaws.com/now/'
 #URL = 'https://google.com'
 try:
 
